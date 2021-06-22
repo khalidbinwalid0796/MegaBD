@@ -56,7 +56,7 @@
               <div class="modal-body pd-20">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category" name="category_name" required="">
+                  <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category" name="category_name">
               @error('category_name')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>

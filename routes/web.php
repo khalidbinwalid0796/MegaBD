@@ -201,9 +201,11 @@ Route::post('user/stripe/charge/','Frontend\PaymentController@STripeCharge')->na
 //Product(single product view & add to cart & search)
  Route::get('/product/details/{id}/{product_name}', 'Frontend\ProductController@ProductView');
  Route::post('/cart/product/add/{id}', 'Frontend\ProductController@AddCart');
- Route::post('product/search', 'Frontend\FrontendController@ProductSearch')->name('product.search');
+ Route::get('product/search', 'Frontend\FrontendController@ProductSearch')->name('product.search');
  //product show according to subcat
  Route::get('/products/{id}', 'Frontend\ProductController@productsView');
+ //product Filter
+ //Route::get('/product/filter', 'Frontend\ProductController@ProductFilter')->name('product.filter');
 
 //Return Route
 Route::get('success/list/','Frontend\ReturnorderController@SuccessList')->name('success.orderlist');

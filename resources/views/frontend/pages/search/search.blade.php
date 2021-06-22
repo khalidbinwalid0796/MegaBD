@@ -96,7 +96,7 @@
 
 						<div class="product_grid row">
 							<div class="product_grid_border"></div>
-
+						@if(count($products)>0)
 							@foreach($products as $pro)
 							<!-- Product Item -->
 							<div class="product_item is_new ">
@@ -134,16 +134,16 @@
 							</div>
 							@endforeach
 
-
+							@else
+							<tr><td>No result found!</td></tr>
+							@endif
 
 						</div>
 
 						<!-- Shop Page Navigation -->
 
-						<div class="shop_page_nav d-flex flex-row">
-							<div class="page_prev d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-left"></i></div>
-							 {{   $products->links() }}
-							<div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
+						<div class="pagination-block">
+							 {{  ($products->appends(request()->input())->links('frontend.layouts.paginationlinks')) }}
 						</div>
 
 					</div>

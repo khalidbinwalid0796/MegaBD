@@ -44,13 +44,13 @@ class FrontendController extends Controller
     public function ProductSearch(Request $request)
     {
          $brands=DB::table('brands')->get();
-          $item=$request->search;
+          $search_key=$request->input('search_key');
           $products=DB::table('products')
                                 // ->join('brands','products.brand_id','brands.id')
                                 // ->select('products.*','brands.brand_name')
-                                ->where('product_name','LIKE', "%{$item}%")
+                                ->where('product_name','LIKE', "%{$search_key}%")
                                 // ->orWhere('brand_name','LIKE', "%{$item}%")
-                                ->paginate(20);
+                                ->paginate(5);
 
     // $products = Product::orWhere('product_name', 'like', '%'.$item.'%')
     //->orWhere('product_details', 'like', '%'.$item.'%')
@@ -59,4 +59,5 @@ class FrontendController extends Controller
 
                return view('frontend.pages.search.search',compact('brands','products'));       
     }
+
 }

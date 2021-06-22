@@ -22,10 +22,12 @@ class CategoryController extends Controller
 
     public function storecatgory(Request $request)
     {
-    	$validatedData = $request->validate([
-        'category_name' => 'required|unique:categories|max:55',
-        ]);
-
+    $this->validate($request, [
+      'category_name'  => 'required|unique:categories|max:55',    
+    ],
+    [
+      'category_name.required'  => 'Please provide a categories',     
+    ]);
         // $data=array();
         // $data['category_name']=$request->category_name;
         // DB::table('categories')->insert($data);
@@ -58,9 +60,12 @@ class CategoryController extends Controller
 
     public function UpdateCategory(Request $request,$id)
     {
-    	$validatedData = $request->validate([
-        'category_name' => 'required|max:55',
-        ]);
+    $this->validate($request, [
+      'category_name'  => 'required|max:55',    
+    ],
+    [
+      'category_name.required'  => 'Please provide a categories',     
+    ]);
          $data=array();
          $data['category_name']=$request->category_name;
          $update= DB::table('categories')->where('id',$id)->update($data);

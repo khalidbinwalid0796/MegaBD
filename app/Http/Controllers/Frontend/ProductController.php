@@ -65,7 +65,7 @@ class ProductController extends Controller
 
     public function productsView($id)
     {
-        $products=DB::table('products')->where('subcategory_id',$id)->paginate(30);
+        $products=DB::table('products')->where('subcategory_id',$id)->paginate(5);
 
         //brand name show
          $brands= DB::table('products')
